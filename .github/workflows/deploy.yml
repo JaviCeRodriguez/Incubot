@@ -1,31 +1,34 @@
-name: Deploy
-
-on: [push]
-
+name: Deploy Incubot
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Comment'
+        required: false
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v1
-
-    - name: Copy repository contents via scp
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-      with:
-        source: "."
-        target: "~/Incubator/incubot"
-
-    - name: Executing remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: ls
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build the docker image
+        run: docker build -t "incubot-image:$(echo ${GITHUB_SHA} | cut -c1-8)" .
+      - name: Stop the current container
+        continue-on-error: true
+        run: docker stop incubot
+      - name: Remove the current container
+        continue-on-error: true
+        run: docker rm incubot
+      - name: Remove old docker image
+        continue-on-error: true
+        run: docker rmi "incubot-image:$(echo ${{ github.event.before }} | cut -c1-8)"
+      - name: Run the new container
+        run: >
+          docker run -d --restart always
+          -e "DISCORD_PREFIX=${{ secrets.DISCORD_PREFIX }}"
+          -e "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}"
+          -e "DISCORD_WELCOME_CH_ID=${{ secrets.DISCORD_WELCOME_CH_ID }}"
+          --name incubot "incubot-image:$(echo ${GITHUB_SHA} | cut -c1-8)"
