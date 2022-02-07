@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "/Incubator/incubot"
+        target: "~/Incubator/incubot"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
