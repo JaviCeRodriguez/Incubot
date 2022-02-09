@@ -14,8 +14,7 @@ class Games(commands.Cog):
     async def roll_dice(self, ctx):
         e = EmbedGenerator(ctx)
         e.title = "[DICE] Tira un dado"
-        e.description = f"""Módulo de redes sociales. 
-        El comando es {self.PREFIX}redes. Muestra los links de las redes sociales de Incubator."""
+        e.description = "¡Probá tu suerte tirando un dado!"
         e.fields = [
             ("Tu número es ", random.randint(1, 6))
         ]
