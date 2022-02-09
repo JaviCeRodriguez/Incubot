@@ -11,7 +11,18 @@ class Games(commands.Cog):
     
     @commands.group()
     async def game(self, ctx):
-        pass
+        if ctx.invoked_subcommand is not None:
+            return
+        
+        e = EmbedGenerator(ctx)
+        e.title = "[GAMES]"
+        e.description = "Mini juegos disponibles"
+        e.fields = [
+            (f"`{self.PREFIX}game dice`", "Tirada de dados aleatoriamente")
+        ]
+        embed = e.generate_embed()
+
+        await ctx.send(embed=embed)
 
     @game.command()
     async def dice(self, ctx):

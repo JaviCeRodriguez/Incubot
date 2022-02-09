@@ -12,6 +12,9 @@ class Help(commands.Cog):
 
     @commands.group()
     async def help(self, ctx):
+        if ctx.invoked_subcommand is not None:
+            return
+        
         e = EmbedGenerator(ctx)
         e.title = "[HELP] Módulos"
         e.description = "Descripción corta de todos los módulos de Incubot"
