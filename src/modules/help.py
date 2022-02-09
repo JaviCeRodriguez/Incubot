@@ -30,3 +30,13 @@ class Help(commands.Cog):
         embed = e.generate_embed()
         
         await ctx.send(embed=embed)
+    
+    @help.command()
+    async def redes(self, ctx):
+        e = ClassicEmbed(ctx)
+        e.title = "[HELP] Redes"
+        e.description = """Módulo de redes sociales. 
+        El comando es prefix + redes, muestra los links de las redes sociales de Incubator."""
+        embed = e.generate_embed()
+        
+        await ctx.send(embed=embed)
