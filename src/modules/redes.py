@@ -16,7 +16,7 @@ class Redes(commands.Cog):
         e.description = "Links de redes sociales de Incubot"
         e.fields = [
             ("🌐 Página Web", "https://incubator.com.ar/"),
-            ("💼 Linkedin", "https://www.linkedin.com/company/incubator-ar/")
+            ("💼 Linkedin", "https://www.linkedin.com/company/incubator-ar/"),
             ("🐦 Twitter", "https://twitter.com/incubator_it"),
             ("🎮 Discord", "Es privado panflin"),
         ]
