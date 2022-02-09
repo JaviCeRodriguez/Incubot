@@ -7,4 +7,4 @@ class Daily(commands.Cog):
 
     @commands.command()
     async def daily(self, ctx):
-        await ctx.send('hola')
+        await ctx.send('Próximamente 🚀')
