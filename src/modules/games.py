@@ -35,5 +35,6 @@ class Games(commands.Cog):
             ("Tu número es ", random.randint(1, 6))
         ]
         embed = e.generate_embed()
+        print("Dummy print: ", random.randint(1, 6))
 
         await ctx.send(embed=embed)
