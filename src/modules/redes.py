@@ -15,9 +15,9 @@ class Redes(commands.Cog):
         e.title = "[SOCIALS] Links de redes sociales"
         e.description = "Links de redes sociales de Incubot"
         e.fields = [
-            ("Twitter", "Todavia no disponible"),
+            ("Twitter", "Todavía no disponible"),
             ("Discord", "Es privado panflin"),
-            ("Pagina Web", "https://incubator.com.ar/"),
+            ("Página Web", "https://incubator.com.ar/"),
             ("Linkedin", "https://www.linkedin.com/company/incubator-ar/")
         ]
         embed = e.generate_embed()
