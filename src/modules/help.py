@@ -40,3 +40,13 @@ class Help(commands.Cog):
         embed = e.generate_embed()
         
         await ctx.send(embed=embed)
+    
+    @help.command()
+    async def games(self, ctx):
+        e = ClassicEmbed(ctx)
+        e.title = "[HELP] Games"
+        e.description = """Módulo de juegos. Lista de juegos disponibles hasta el momento: 
+        - roll_dice"""
+        embed = e.generate_embed()
+        
+        await ctx.send(embed=embed)

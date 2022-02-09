@@ -17,7 +17,7 @@ class Redes(commands.Cog):
         e.fields = [
             ("Twitter", "Todavía no disponible"),
             ("Discord", "Es privado panflin"),
-            ("Pagina Web", "https://incubator.com.ar/"),
+            ("Página Web", "https://incubator.com.ar/"),
             ("Linkedin", "https://www.linkedin.com/company/incubator-ar/")
         ]
         embed = e.generate_embed()
