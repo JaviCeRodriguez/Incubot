@@ -44,6 +44,8 @@ if __name__ == "__main__":
     bot.add_cog(modules.Help(bot))
     bot.add_cog(modules.Welcome(bot))
     bot.add_cog(modules.Daily(bot))
+    bot.add_cog(modules.Redes(bot))
+    bot.add_cog(modules.Games(bot))
 
     log.info("Bot started ...")
     bot.run(TOKEN)

@@ -12,7 +12,11 @@ Bot de Discord, hecho en Python y MongoDB.
 
 - **>help**: Muestra la lista de comandos disponibles.
 - **>daily**: Muestra el mensaje de reporte diario.
+- **>redes**: Muestra las redes de la empresa.
 
+## Juegos
+
+- **>roll_dice**: Tira un dado de 6 caras.
 ## Variables de entorno
 
 Crear un archivo `.env` con las siguientes variables:
